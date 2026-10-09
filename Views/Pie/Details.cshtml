@@ -1,0 +1,89 @@
+﻿@model BethanysPieShop.Models.Pie
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@Model.Name - WebApplication11</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+	<div class="container">
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary" aria-label="Bethany's Pie Shop navigation header">
+				<div class="container-xl">
+					<a class="navbar-brand" href="/">
+						<img src="/images/bethanys-pie-shop-logo.png" width="151" height="47"
+							 class="d-inline-block align-top mb-2 mt-1" alt="Bethany's Pie Shop Logo">
+					</a>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a href="/Pie/List" class="nav-link">Pies</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+
+		<main class="mt-2 pt-4 pie-detail">
+			<h1 class="mt-5 pt-4">Pie detail</h1>
+			<p class="mb-3">
+				<a href="/Pie/List" class="back-link">← Back to list</a>
+			</p>
+
+			<div class="row g-4 align-items-start">
+				
+				<div class="col-12 col-md-5">
+					<img src="@Model.ImageUrl" class="img-fluid pie-hero" />
+				</div>
+
+				<div class="col-12 col-md-7">
+					<div class="card pie-card h-100">
+						<div class="card-body">
+							<h1 class="h3 mb-2">@Model.Name</h1>
+							@if (!string.IsNullOrWhiteSpace(Model.ShortDescription))
+							{
+								<p class="subtitle-muted mb-2">@Model.ShortDescription</p>
+							}
+							@if (!string.IsNullOrWhiteSpace(Model.LongDescription))
+							{
+								<div class="copy">
+									<p>@Model.LongDescription</p>
+								</div>
+							}
+
+							<div class="d-flex align-items-center justify-content-between mt-3">
+								<p class="h4 mb-0 pie-price">@Model.Price.ToString("c")</p>
+								<div>
+									@if (Model.IsPieOfTheWeek)
+									{
+										<span class="badge bg-success me-2">Pie of the Week</span>
+									}
+									@if (Model.InStock)
+									{
+										<span class="badge badge-instock">In stock</span>
+									}
+									else
+									{
+										<span class="badge bg-secondary">Out of stock</span>
+									}
+								</div>
+							</div>
+						</div>
+
+						<div class="card-body pt-0">
+							<a href="/Pie/List" class="btn btn-soft-primary">← Back to list</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>
