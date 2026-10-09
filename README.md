@@ -18,4 +18,8 @@ This project is being developed while following the **"Getting Started with ASP.
 - In-memory/static data store (Models/StaticPieData) to provide sample data.
 - Serving static assets from wwwroot (CSS, images, Bootstrap via libman).
 - Environment-specific behavior (Developer Exception Page enabled in Development).
+- Entity Framework Core with InMemory provider configured via AddDbContext<AppDbContext> and UseInMemoryDatabase (configured in Program.cs).
+- AppDbContext implementing DbSet<Pie> (Models/AppDbContext.cs) and constructor accepting DbContextOptions.
+- Data seeding service (Models/DataSeeder.cs) that ensures the database is created and seeds sample pies on application startup via DataSeeder.Initialize(app.Services).
+- Controller updated to use constructor injection for AppDbContext to query pies from the in-memory database (Controllers/PieController.cs).
 - Basic Razor view usage and Bootstrap-based layout in views.

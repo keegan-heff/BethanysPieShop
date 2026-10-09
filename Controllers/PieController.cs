@@ -1,27 +1,37 @@
 ﻿using BethanysPieShop.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BethanysPieShop.Controllers
 {
     public class PieController : Controller
     {
+        private readonly AppDbContext _context;
 
-        public IActionResult List()
+        public PieController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IActionResult> List()
         {
             ViewBag.CurrentCategory = "All pies";
-            var pies = StaticPieData.GetAll();
+
+            var pies = await _context.Pies
+                .AsNoTracking()
+                .OrderBy(p => p.PieId)
+                .ToListAsync();
+
             return View(pies);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            var pie = StaticPieData.GetById(id);
-            if (pie is null)
-            {
-                return NotFound();
-            }
+            var pie = await _context.Pies
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.PieId == id);
 
-            return View(pie);
+            return pie is null ? NotFound() : View(pie);
         }
     }
 }
