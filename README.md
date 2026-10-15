@@ -8,6 +8,15 @@ BethanysPieShop is an introductory ASP.NET Core 10 project designed to practice 
 
 This project is being developed while following the **"Getting Started with ASP.NET Core 10"** course by **Gill Cleeren**, which is part of the **ASP.NET Core 10 path** on Pluralsight.
 
+## Implemented concepts (so far)
+
+- Contact form implemented with GET and POST actions and views (Controllers/ContactController.cs, Views/Contact/Index.cshtml, Views/Contact/Thanks.cshtml).
+- Tag Helpers used in views (e.g., @addTagHelper and asp-for, asp-action, asp-validation-* tag helpers) to simplify form markup and validation rendering.
+- Model binding for form submissions: Contact model is bound to the POST action parameter and uses DataAnnotations for validation (Models/Contact.cs).
+- Server-side validation with DataAnnotations and ModelState checks; validation messages are rendered via asp-validation-for and asp-validation-summary in the contact view.
+- Simple in-memory storage for contact submissions (Models/StaticContactData.cs).
+- Use of TempData to surface a success message after redirect (ContactController).
+
 ## Implemented concepts
 
 - ASP.NET Core 10 web project using the minimal hosting model (Program.cs).
