@@ -6,14 +6,17 @@ BethanysPieShop is an introductory ASP.NET Core 10 project designed to practice 
 
 ## Course
 
-This project is being developed while following the **"Getting Started with ASP.NET Core 10"** course by **Gill Cleeren**, which is part of the **ASP.NET Core 10 path** on Pluralsight.
+This project has been created by following courses provided within the **ASP.NET Core 10 path** on Pluralsight.
+The courses followed are:
+- **"Getting Started with ASP.NET Core 10"** course by **Gill Cleeren**.
+- **"Building Web Applications with ASP.NET Core 10 MVC"** course by **Gill Cleeren**.
 
 ## Live Demo
 
 The project has been published to Azure and is available at:  
 **https://bethanyspieshop-dbepbpgscxf4ctgj.canadaeast-01.azurewebsites.net/**
 
-## Implemented concepts
+## First Course Concepts Implemented
 
 - ASP.NET Core 10 minimal hosting and MVC controllers and views.
 - Routing with a default route for the pie listing.
@@ -27,3 +30,13 @@ The project has been published to Azure and is available at:
 - DataAnnotations and `ModelState` for server-side form validation.
 - In-memory storage and TempData for contact submissions and success messages.
 - Publishing the ASP.NET Core application to Azure App Service.
+
+## Second Course Concepts
+
+- Cleaner MVC structure with ViewModels, layouts, and partials
+- TODO: Refactor data access with EF Core and repositories
+- TODO: Configure middleware and routing
+- TODO: Create interactive forms with model binding and validation
+- TODO: Enhance UI with view components and custom tag helpers
+- TODO: Add authentication and authorization with ASP.NET Core Identity
+- TODO: Write unit tests for controllers, services, and tag helpers

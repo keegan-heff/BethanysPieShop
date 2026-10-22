@@ -1,4 +1,5 @@
 ﻿using BethanysPieShop.Models;
+using BethanysPieShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,14 +16,20 @@ namespace BethanysPieShop.Controllers
 
         public async Task<IActionResult> List()
         {
-            ViewBag.CurrentCategory = "All pies";
-
             var pies = await _context.Pies
                 .AsNoTracking()
                 .OrderBy(p => p.PieId)
                 .ToListAsync();
 
-            return View(pies);
+			string category = "All pies";
+
+			var viewModel = new PieListViewModel
+			{
+				Pies = pies,
+				CurrentCategory = category
+			};
+
+            return View(viewModel);
         }
 
         public async Task<IActionResult> Details(int id)

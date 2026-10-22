@@ -1,69 +1,33 @@
-﻿@model BethanysPieShop.Models.Contact
+﻿@model Contact
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Contact - Bethany's Pie Shop</title>
-	<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="/css/site.css" />
-</head>
-<body>
-	<div class="container">
-		<header>
-			<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary" aria-label="Bethany's Pie Shop navigation header">
-				<div class="container-xl">
-					<a class="navbar-brand" href="/">
-						<img src="/images/bethanys-pie-shop-logo.png" width="151" height="47"
-							 class="d-inline-block align-top mb-2 mt-1" alt="Bethany's Pie Shop Logo">
-					</a>
-					<div class="collapse navbar-collapse" id="navbarCollapse">
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-							<li class="nav-item">
-								<a href="/Pie/List" class="nav-link">Pies</a>
-							</li>
-							<li class="nav-item">
-								<a href="/Contact/Index" class="nav-link">Contact</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</header>
+<main class="mt-5 pt-4">
+    <h1>Contact us</h1>
+    <p class="text-muted">Questions, feedback, or pie requests? Send us a note.</p>
 
-        <main class="mt-5 pt-4">
-            <h1>Contact us</h1>
-            <p class="text-muted">Questions, feedback, or pie requests? Send us a note.</p>
+    <form asp-action="Index" method="post" class="mt-3" novalidate>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name"></span>
+        </div>
 
-            <form asp-action="Index" method="post" class="mt-3" novalidate>
-                <div asp-validation-summary="All"></div>
-                <div class="mb-3">
-                    <label asp-for="Name" class="form-label"></label>
-                    <input asp-for="Name" class="form-control"/>
-                    <span asp-validation-for="Name"></span>
-                </div>
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+        </div>
 
-                <div class="mb-3">
-                    <label asp-for="Email" class="form-label"></label>
-                    <input asp-for="Email" class="form-control" />
-                </div>
+        <div class="mb-3">
+            <label asp-for="Subject" class="form-label"></label>
+            <input asp-for="Subject" class="form-control" />
+        </div>
 
-                <div class="mb-3">
-                    <label asp-for="Subject" class="form-label"></label>
-                    <input asp-for="Subject" class="form-control" />
-                </div>
+        <div class="mb-3">
+            <label asp-for="Message" class="form-label"></label>
+            <textarea asp-for="Message" rows="5" class="form-control"></textarea>
+        </div>
 
-                <div class="mb-3">
-                    <label asp-for="Message" class="form-label"></label>
-                    <textarea asp-for="Message" rows="5" class="form-control"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Send message</button>
-            </form>
-        </main>
-    </div>
-</body>
-</html>
+        <button type="submit" class="btn btn-primary">Send message</button>
+    </form>
+</main>
