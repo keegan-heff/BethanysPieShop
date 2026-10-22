@@ -8,27 +8,22 @@ BethanysPieShop is an introductory ASP.NET Core 10 project designed to practice 
 
 This project is being developed while following the **"Getting Started with ASP.NET Core 10"** course by **Gill Cleeren**, which is part of the **ASP.NET Core 10 path** on Pluralsight.
 
-## Implemented concepts (so far)
+## Live Demo
 
-- Contact form implemented with GET and POST actions and views (Controllers/ContactController.cs, Views/Contact/Index.cshtml, Views/Contact/Thanks.cshtml).
-- Tag Helpers used in views (e.g., @addTagHelper and asp-for, asp-action, asp-validation-* tag helpers) to simplify form markup and validation rendering.
-- Model binding for form submissions: Contact model is bound to the POST action parameter and uses DataAnnotations for validation (Models/Contact.cs).
-- Server-side validation with DataAnnotations and ModelState checks; validation messages are rendered via asp-validation-for and asp-validation-summary in the contact view.
-- Simple in-memory storage for contact submissions (Models/StaticContactData.cs).
-- Use of TempData to surface a success message after redirect (ContactController).
+The project has been published to Azure and is available at:  
+**https://bethanyspieshop-dbepbpgscxf4ctgj.canadaeast-01.azurewebsites.net/**
 
 ## Implemented concepts
 
-- ASP.NET Core 10 web project using the minimal hosting model (Program.cs).
-- ASP.NET Core MVC: Controllers and Views (PieController, Views/Pie/*.cshtml).
-- Routing with a default controller route configured (default: Pie/List).
-- Passing models to views and model binding (Pie model and @model directive in views).
-- Using ViewBag for simple view data (e.g., CurrentCategory).
-- In-memory/static data store (Models/StaticPieData) to provide sample data.
-- Serving static assets from wwwroot (CSS, images, Bootstrap via libman).
-- Environment-specific behavior (Developer Exception Page enabled in Development).
-- Entity Framework Core with InMemory provider configured via AddDbContext<AppDbContext> and UseInMemoryDatabase (configured in Program.cs).
-- AppDbContext implementing DbSet<Pie> (Models/AppDbContext.cs) and constructor accepting DbContextOptions.
-- Data seeding service (Models/DataSeeder.cs) that ensures the database is created and seeds sample pies on application startup via DataSeeder.Initialize(app.Services).
-- Controller updated to use constructor injection for AppDbContext to query pies from the in-memory database (Controllers/PieController.cs).
-- Basic Razor view usage and Bootstrap-based layout in views.
+- ASP.NET Core 10 minimal hosting and MVC controllers and views.
+- Routing with a default route for the pie listing.
+- Razor views, model binding, ViewBag, and Bootstrap styling.
+- Static assets served from `wwwroot`.
+- Entity Framework Core with an InMemory database and `AppDbContext`.
+- Dependency injection for controllers and database access.
+- Seeded pie data using a startup data seeding service.
+- Contact form with GET and POST actions.
+- Tag Helpers for form fields, actions, and validation messages.
+- DataAnnotations and `ModelState` for server-side form validation.
+- In-memory storage and TempData for contact submissions and success messages.
+- Publishing the ASP.NET Core application to Azure App Service.
