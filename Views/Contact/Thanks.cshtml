@@ -1,0 +1,46 @@
+﻿@{
+    var msg = TempData["ContactSuccess"] as string;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanks - Bethany's Pie Shop</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary" aria-label="Bethany's Pie Shop navigation header">
+                <div class="container-xl">
+                    <a class="navbar-brand" href="/">
+                        <img src="/images/bethanys-pie-shop-logo.png" width="151" height="47"
+                             class="d-inline-block align-top mb-2 mt-1" alt="Bethany's Pie Shop Logo">
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a href="/Pie/List" class="nav-link">Pies</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Contact/Index" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="mt-5 pt-4">
+            <h1>Thank you!</h1>
+            <p class="lead">@(!string.IsNullOrEmpty(msg) ? msg : "We received your message and will get back to you soon.")</p>
+            <p><a href="/Pie/List" class="btn btn-primary">Back to pies</a></p>
+        </main>
+    </div>
+</body>
+</html>
