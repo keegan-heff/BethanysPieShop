@@ -7,26 +7,32 @@ namespace BethanysPieShop.Controllers
 {
     public class PieController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IPieRepository _pieRepository;
 
-        public PieController(AppDbContext context)
+        public PieController(IPieRepository pieRepository)
         {
-            _context = context;
+            _pieRepository = pieRepository;
         }
 
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> List(string category)
         {
-            var pies = await _context.Pies
-                .AsNoTracking()
-                .OrderBy(p => p.PieId)
-                .ToListAsync();
+            string currentCategory = "All pies";
+			List<Pie> pies;
 
-			string category = "All pies";
+			if (string.IsNullOrWhiteSpace(category))
+			{
+				pies = await _pieRepository.GetAllAsync();
+			}
+			else
+			{
+				currentCategory = category.Trim();
+				pies = await _pieRepository.GetByCategoryAsync(currentCategory);
+			}
 
 			var viewModel = new PieListViewModel
 			{
 				Pies = pies,
-				CurrentCategory = category
+				CurrentCategory = currentCategory
 			};
 
             return View(viewModel);
@@ -34,9 +40,7 @@ namespace BethanysPieShop.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            var pie = await _context.Pies
-                .AsNoTracking()
-                .FirstOrDefaultAsync(p => p.PieId == id);
+            var pie = await _pieRepository.GetByIdAsync(id);
 
             return pie is null ? NotFound() : View(pie);
         }

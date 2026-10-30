@@ -13,7 +13,7 @@ The courses followed are:
 
 ## Live Demo
 
-The project has been published to Azure and is available at:  
+The project up to the end of course 1 has been published to Azure and is available at:  
 **https://bethanyspieshop-dbepbpgscxf4ctgj.canadaeast-01.azurewebsites.net/**
 
 ## First Course Concepts Implemented
@@ -34,9 +34,15 @@ The project has been published to Azure and is available at:
 ## Second Course Concepts
 
 - Cleaner MVC structure with ViewModels, layouts, and partials
-- TODO: Refactor data access with EF Core and repositories
+- Refactor data access with EF Core and repositories
 - TODO: Configure middleware and routing
 - TODO: Create interactive forms with model binding and validation
 - TODO: Enhance UI with view components and custom tag helpers
 - TODO: Add authentication and authorization with ASP.NET Core Identity
 - TODO: Write unit tests for controllers, services, and tag helpers
+
+## Variations From Course Content
+
+- I've setup a local SQLite database for development, and configured an Azure SQL database for the public published version.
+- Database connection strings are stored in a secrets file for security/privacy
+- Made a local powershell migration script to push development database migrations to the Azure SQL database prior to publishing.
